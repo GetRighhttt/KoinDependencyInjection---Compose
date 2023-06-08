@@ -32,8 +32,12 @@ completely depends on kotlin programming. JIT compilation.
 
 class MainActivity : ComponentActivity(), AndroidScopeComponent {
 
+    /*
+    In Koin, because it is used to optimize the performance of kotlin,
+    we can use lazy delegation with the "by" keyword to inject everything into
+    the main activity.
+     */
 //    private val viewModel by viewModel<MainViewModel>()
-
     override val scope: Scope by activityScope()
     private val hello by inject<String>(named("bye"))
 
@@ -42,6 +46,7 @@ class MainActivity : ComponentActivity(), AndroidScopeComponent {
         println(hello)
         setContent {
             KoinExampleTheme {
+                // another way to inject view models
                 val viewModel = getViewModel<MainViewModel>()
                 viewModel.doNetworkCall()
             }
