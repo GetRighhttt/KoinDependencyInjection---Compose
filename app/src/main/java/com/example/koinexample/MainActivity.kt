@@ -11,19 +11,39 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.koinexample.ui.theme.KoinExampleTheme
+import org.koin.android.ext.android.inject
+import org.koin.android.scope.AndroidScopeComponent
+import org.koin.androidx.scope.activityScope
+import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.qualifier.named
+import org.koin.core.scope.Scope
 
-class MainActivity : ComponentActivity() {
+/*
+Koin vs Dagger and Dagger-Hilt
+
+Dagger and dagger-hilt -> compile time (fast), uses annotations and has a lot of boilerplate code,
+has a ton of code generation and dependencies that are necessary in order to get it working. Dagger
+and Dagger-Hilt also depend on Java. AOT compilation.
+
+Koin -> runtime (slower), no annotations and doesn't involve code regeneration or generation,
+completely depends on kotlin programming. JIT compilation.
+ */
+
+class MainActivity : ComponentActivity(), AndroidScopeComponent {
+
+//    private val viewModel by viewModel<MainViewModel>()
+
+    override val scope: Scope by activityScope()
+    private val hello by inject<String>(named("bye"))
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        println(hello)
         setContent {
             KoinExampleTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
+                val viewModel = getViewModel<MainViewModel>()
+                viewModel.doNetworkCall()
             }
         }
     }
