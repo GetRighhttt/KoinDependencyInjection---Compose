@@ -42,7 +42,13 @@ class MainActivity : ComponentActivity() {
                             BottomAppBar(
                                 actions = {
                                     IconButton(
-                                        onClick = { /*TODO*/ }
+                                        onClick = {
+                                            Toast.makeText(
+                                                applicationContext,
+                                                "Pressed Share Button",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
                                     ) {
                                         Icon(
                                             imageVector = Icons.Default.Share,
@@ -50,7 +56,13 @@ class MainActivity : ComponentActivity() {
                                         )
                                     }
                                     IconButton(
-                                        onClick = { /*TODO*/ }
+                                        onClick = {
+                                            Toast.makeText(
+                                                applicationContext,
+                                                "Pressed Search Button",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
                                     ) {
                                         Icon(
                                             imageVector = Icons.Default.Search,
@@ -58,7 +70,13 @@ class MainActivity : ComponentActivity() {
                                         )
                                     }
                                     IconButton(
-                                        onClick = { /*TODO*/ }
+                                        onClick = {
+                                            Toast.makeText(
+                                                applicationContext,
+                                                "Pressed Settings Button",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
                                     ) {
                                         Icon(
                                             imageVector = Icons.Default.Settings,
@@ -71,7 +89,7 @@ class MainActivity : ComponentActivity() {
                                         onClick = {
                                             Toast.makeText(
                                                 applicationContext,
-                                                "Add",
+                                                "Pressed the Add button",
                                                 Toast.LENGTH_SHORT
                                             ).show()
                                         }
@@ -85,6 +103,7 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                     ) {
+                        it
                         // TODO: Add something
                     }
                 }
