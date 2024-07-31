@@ -9,10 +9,10 @@
 fun shuffle(nums: IntArray, n: Int): IntArray {
 
     // declare new array
-    var newArr = mutableListOf<Int>()
+    val newArr = mutableListOf<Int>()
 
     // loop through n since that's the end of the array
-    for (i in 0 until n) {
+    for (i in 0..n) {
 
         // we want (Xn, Yn) so add Xn(nums[i]) then add Yn(nums[i + n])
         newArr.add(nums[i])

@@ -1,5 +1,5 @@
 /**
- * 1323. Maxmimum Number
+ * 1323. Maximum Number
  *
  * You are given a positive integer num consisting only of digits 6 and 9.
  *

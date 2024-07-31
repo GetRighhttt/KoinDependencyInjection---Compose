@@ -13,12 +13,12 @@ fun finalValueAfterOperations(operations: Array<String>): Int {
     var x = 0
 
     // loop through size of array starting from 0 since X = 0
-    for (i in 0 until operations.size) {
+    for (i in operations.indices) {
 
         // check if array index equals ++ or -- and either increment or decrement
-        if (operations[i].equals("++X") || operations[i].equals("X++")) {
+        if (operations[i] == "++X" || operations[i] == "X++") {
             x++
-        } else if (operations[i].equals("--X") || operations[i].equals("X--")) {
+        } else if (operations[i] == "--X" || operations[i] == "X--") {
             x--
         }
     }

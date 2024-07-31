@@ -15,11 +15,11 @@ fun numIdenticalPairs(nums: IntArray): Int {
     // nums[i] == nums[j] && indices of i < j
 
     // loop through array for i
-    for (i in 0 until nums.size) {
+    for (i in nums.indices) {
         // loop through array for j and increment indices
-        for (j in (i + 1) until nums.size) {
+        for (k in (i + 1)..<nums.size) {
             // check conditional and increment
-            if (nums[i] == nums[j]) {
+            if (nums[i] == nums[k]) {
                 count++
             }
         }

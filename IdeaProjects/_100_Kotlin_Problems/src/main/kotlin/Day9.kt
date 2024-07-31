@@ -9,7 +9,7 @@
  */
 
 /*
-Algorithim:
+Algorithm:
 - Create variable for string s count
 - Create variable for string t count
 - Find the total sum of letters in string s and convert to int
@@ -19,11 +19,11 @@ Algorithim:
 - Convert string int back to character and return character.
  */
 fun findTheDifference(s: String, t: String): Char {
-    var newString = s + t
+    val newString = s + t
     var n = 0
 
-    for (i in 0 until newString.length) {
-        n = n xor newString[i].toInt()
+    for (i in newString.indices) {
+        n = n xor newString[i].code
     }
     return n.toChar()
 }

@@ -11,7 +11,7 @@
 /*
 We are given a string that matches the length of an array.
 We are not concerned with the array per se, but instead with the indices of the array.
-We want to sort the array and equate it's position to the string character.
+We want to sort the array and equate its position to the string character.
 
 Algorithm:
 1. Create new string to store new char array to store values.
@@ -24,10 +24,10 @@ Algorithm:
 fun restoreString(s: String, indices: IntArray): String {
 
     // create new variable to store char array and equate it to length of indices array
-    var newString = CharArray(indices.size)
+    val newString = CharArray(indices.size)
 
     // loop through char array and assign indices of newString to string s indices
-    for (i in 0 until indices.size) {
+    for (i in indices.indices) {
         newString[indices[i]] = s[i]
     }
     // join char array to a string and don't forget the quotes

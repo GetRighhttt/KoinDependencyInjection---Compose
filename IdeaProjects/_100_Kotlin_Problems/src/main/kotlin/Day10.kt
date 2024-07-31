@@ -20,11 +20,11 @@ We are working with ascii value of digits and return as char.
 
 
 fun replaceDigits(s: String): String {
-    var ansString = StringBuilder()
+    val ansString = StringBuilder()
 
-    for (i in 0 until s.length) {
+    for (i in s.indices) {
         if (s[i].isDigit()) {
-            ansString.append(s[i - 1] + s[i].toInt() - '0'.toInt())
+            ansString.append(s[i - 1] + s[i].code - '0'.code)
         } else {
             ansString.append(s[i])
         }
